@@ -17,7 +17,7 @@ body {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.8); /* Tăng opacity */
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
@@ -76,7 +76,7 @@ nav ul li a:hover, nav ul li a.active {
 }
 
 .feature-card {
-    background-color: rgba(0, 102, 204, 0.2);
+    background-color: rgba(0, 102, 204, 0.4); /* Tăng opacity */
     border: 1px solid #0066cc;
     border-radius: 10px;
     padding: 20px;
@@ -111,10 +111,10 @@ footer {
 .data-particle {
     position: fixed;
     font-size: 12px;
-    color: rgba(0, 255, 255, 0.3); /* Làm mờ particles */
+    color: rgba(0, 255, 255, 0.3);
     animation: dataFlow 3s infinite;
     pointer-events: none;
-    z-index: 0; /* Đặt particles phía sau nội dung */
+    z-index: 0;
 }
 
 .content-links {
@@ -124,7 +124,7 @@ footer {
 }
 
 .link-card {
-    background-color: rgba(0, 102, 204, 0.2);
+    background-color: rgba(0, 102, 204, 0.4); /* Tăng opacity */
     border: 1px solid #0066cc;
     border-radius: 10px;
     padding: 20px;
@@ -161,14 +161,13 @@ footer {
 }
 
 .background-plot {
-    background-color: rgba(10, 10, 10, 0.8); /* Thêm độ trong suốt nhẹ */
+    background-color: rgba(10, 10, 10, 0.9); /* Tăng opacity */
     color: #e0e0e0;
     padding: 20px;
     font-family: 'Arial', sans-serif;
     line-height: 1.6;
-	position: relative;
+    position: relative;
     z-index: 1;
-	
 }
 
 .main-title {
@@ -217,4 +216,12 @@ footer {
 
 p {
     margin-bottom: 15px;
+}
+
+/* Thêm class mới cho các hộp content chung */
+.content-box {
+    background-color: rgba(0, 0, 0, 1);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
 }
