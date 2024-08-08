@@ -232,3 +232,13 @@ p {
     border-radius: 10px;
     margin-bottom: 20px;
 }
+
+.keyword {
+    color: #ffd700; /* Màu vàng gold */
+    font-weight: bold;
+}
+
+.danger {
+    color: #ff4500; /* Màu đỏ orangered */
+    font-weight: bold;
+}

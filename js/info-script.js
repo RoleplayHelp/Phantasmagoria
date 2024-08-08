@@ -1,4 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Cấu hình các section và file HTML tương ứng
+    const sectionConfig = [
+        { id: 'intro', file: 'background-plot.html' },
+        { id: 'organizations', file: 'organization.html' },
+        { id: 'networkavatar', file: 'network avatar.html' }
+        // Thêm các section mới ở đây
+    ];
+
     const sections = document.querySelectorAll('section');
     const backToTopButton = document.getElementById("backToTop");
 
@@ -41,8 +49,9 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
     // Load nội dung cho các phần
-    loadContent('intro', 'background-plot.html');
-    loadContent('organizations', 'organization.html');
+    sectionConfig.forEach(section => {
+        loadContent(section.id, section.file);
+    });
 
     // Xử lý đóng/mở nội dung cho tất cả các phần
     sections.forEach(section => {
@@ -70,7 +79,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 backToTopButton.style.display = "none";
             }
         };
-
         backToTopButton.onclick = function() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
