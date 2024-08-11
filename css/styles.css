@@ -1,3 +1,9 @@
+/* Thêm Tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* CSS hiện có */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@300;400;700&display=swap');
 
 body {
@@ -226,19 +232,299 @@ p {
     font-size: 1.1em;
 }
 
-.content-box {
-    background-color: rgba(0, 0, 0, 0.8);
-    padding: 20px;
-    border-radius: 10px;
-    margin-bottom: 20px;
+.main-title {
+    color: #22d3ee;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid #22d3ee;
+    padding-bottom: 10px;
 }
 
-.keyword {
-    color: #ffd700; /* Màu vàng gold */
+.event-title {
+    color: #f87171;
+    text-transform: uppercase;
+}
+
+.highlight {
+    color: #fbbf24;
+    font-weight: bold;
+}
+
+.organization {
+    color: #60a5fa;
     font-weight: bold;
 }
 
 .danger {
-    color: #ff4500; /* Màu đỏ orangered */
+    color: #ef4444;
     font-weight: bold;
+}
+
+.character {
+    color: #34d399;
+    font-weight: bold;
+}
+
+.year {
+    color: #f472b6;
+}
+
+.formula {
+    background-color: #1e3a8a;
+    color: #22d3ee;
+    padding: 2px 5px;
+    border-radius: 4px;
+    font-family: monospace;
+}
+
+.keyword {
+    color: #fbbf24;
+    font-style: italic;
+}
+
+.content-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+/* Elemental Affinity styles */
+.element-force { color: #fbbf24; font-weight: bold; }
+.element-flame { color: #ef4444; font-weight: bold; }
+.element-aqua { color: #3b82f6; font-weight: bold; }
+.element-gale { color: #10b981; font-weight: bold; }
+.element-terra { color: #f97316; font-weight: bold; }
+.element-holy { color: #fcd34d; font-weight: bold; }
+.element-shadow { color: #8b5cf6; font-weight: bold; }
+
+.main-title {
+    color: #22d3ee;
+    text-transform: uppercase;
+    text-align: center;
+    border-bottom: 2px solid #22d3ee;
+    padding-bottom: 10px;
+}
+
+.class-title {
+    color: #f87171;
+    text-transform: uppercase;
+}
+
+.stat {
+    color: #60a5fa;
+    font-weight: bold;
+}
+
+.highlight {
+    color: #fbbf24;
+    font-weight: bold;
+}
+
+.content-box {
+    background-color: rgba(0, 0, 0, 0.8);
+    padding: 20px;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+
+.class-role {
+    font-style: italic;
+    color: #d1d5db;
+    margin-bottom: 10px;
+}
+
+.stat-max {
+    color: #34d399;
+    font-size: 1.1em;
+    text-shadow: 0 0 5px #34d399;
+}
+
+.ability {
+    color: #fbbf24;
+    font-weight: bold;
+}
+
+.number {
+    color: #f472b6;
+    font-weight: bold;
+}
+
+.condition {
+    color: #a78bfa;
+    font-style: italic;
+}
+
+.limit {
+    color: #fb923c;
+    font-weight: bold;
+}
+
+/* Styles bổ sung cho trang Skill */
+
+.keyword {
+    color: #f59e0b;
+    font-weight: bold;
+}
+
+.sub-keyword {
+    color: #10b981;
+    font-weight: bold;
+}
+
+.number {
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+.formula {
+    background-color: #1e3a8a;
+    color: #22d3ee;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-family: monospace;
+    margin: 10px 0;
+}
+
+.warning {
+    background-color: rgba(239, 68, 68, 0.2);
+    border-left: 4px solid #ef4444;
+    padding: 10px;
+    margin: 10px 0;
+    font-weight: bold;
+}
+
+.note {
+    background-color: rgba(245, 158, 11, 0.2);
+    border-left: 4px solid #f59e0b;
+    padding: 10px;
+    margin: 10px 0;
+}
+
+.example {
+    background-color: rgba(96, 165, 250, 0.1);
+    border: 1px solid #60a5fa;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 4px;
+}
+
+.example h4 {
+    color: #60a5fa;
+    margin-top: 0;
+}
+
+.effect-type {
+    font-weight: bold;
+    padding: 2px 5px;
+    border-radius: 3px;
+}
+
+.effect-type.active { background-color: #ef4444; color: white; }
+.effect-type.buff { background-color: #10b981; color: white; }
+.effect-type.auto-active { background-color: #f59e0b; color: white; }
+.effect-type.passive { background-color: #3b82f6; color: white; }
+
+.skill-type {
+    color: #8b5cf6;
+    font-weight: bold;
+    margin-top: 15px;
+}
+
+.skill-item {
+    margin-bottom: 5px;
+}
+
+.skill-name {
+    color: #ec4899;
+    font-weight: bold;
+}
+
+.skill-group {
+    margin-bottom: 20px;
+}
+
+.toggleable {
+    border: 1px solid #4b5563;
+    border-radius: 4px;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+.toggleable .section-title {
+    cursor: pointer;
+}
+
+.toggleable .section-title::after {
+    content: " ▼";
+    font-size: 0.8em;
+}
+
+.toggleable.closed .section-title::after {
+    content: " ▶";
+}
+
+.toggleable.closed .skill-group {
+    display: none;
+}
+
+.example {
+    background-color: rgba(96, 165, 250, 0.1);
+    border: 1px solid #60a5fa;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 6px;
+}
+
+.example h4 {
+    color: #3b82f6;
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.example ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.example li {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 4px;
+}
+
+.example .result-higher {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left: 4px solid #10b981;
+}
+
+.example .result-lower {
+    background-color: rgba(239, 68, 68, 0.1);
+    border-left: 4px solid #ef4444;
+}
+
+.example .result-equal {
+    background-color: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid #f59e0b;
+}
+
+.rc-value {
+    font-weight: bold;
+    color: #3b82f6;
+}
+
+.result-text {
+    font-weight: bold;
+}
+
+.result-higher .result-text {
+    color: #059669;
+}
+
+.result-lower .result-text {
+    color: #dc2626;
+}
+
+.result-equal .result-text {
+    color: #d97706;
 }

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng quan về Chỉ số</title>
+</head>
+<body>
+    <div class="content-box">
+        <h1 class="main-title">Tổng quan về Chỉ số</h1>
+        
+        <p>Trong hệ thống trò chơi này, chỉ số được chia thành ba loại chính: Chỉ số chính (Main Stat), Chỉ số phụ (Sub Stat) và Elemental Affinity</p>
+        
+        <h2 class="event-title">Chỉ số chính (Main Stat)</h2>
+        <p>Đây là các chỉ số mà người chơi có thể phân bổ tùy ý:</p>
+        <ul>
+            <li><span class="highlight">HP (Health Point)</span></li>
+            <li><span class="highlight">POW (Power)</span></li>
+            <li><span class="highlight">SPD (Speed)</span></li>
+            <li><span class="highlight">REF (Reflex)</span></li>
+            <li><span class="highlight">SHD (Shielding)</span></li>
+            <li><span class="highlight">REC (Recovery)</span></li>
+        </ul>
+        
+        <h2 class="event-title">Chỉ số phụ (Sub Stat)</h2>
+        <p>Đây là các chỉ số mà người chơi không thể trực tiếp phân bổ. Chúng được xây dựng dựa trên Main Stat hoặc được đăng ký thông qua kỹ năng:</p>
+        <ul>
+            <li><span class="highlight">HEALING CAP. (Healing Capacity)</span></li>
+            <li><span class="highlight">Max Range</span></li>
+        </ul>
+        
+        <h2 class="event-title">Elemental Affinity</h2>
+        <p>Đây là hệ số chỉ độ tương thích của <span class="keyword">Neva</span> với 7 nguyên tố:</p>
+        <ul>
+            <li><span class="element-force">Force</span></li>
+            <li><span class="element-flame">Flame</span></li>
+            <li><span class="element-aqua">Aqua</span></li>
+            <li><span class="element-gale">Gale</span></li>
+            <li><span class="element-terra">Terra</span></li>
+            <li><span class="element-holy">Holy</span></li>
+            <li><span class="element-shadow">Shadow</span></li>
+        </ul>
+        <p>Hệ số càng thấp, độ tương thích của <span class="keyword">Neva</span> của với nguyên tố đó càng cao, và <span class="keyword">Neva</span> sẽ nhận ít sát thương từ nguyên tố đó, thậm chí là miễn nhiễm hoặc hấp thụ và hồi thành HP.</p>
+    </div>
+
+    <div class="content-box">
+        <h2 class="event-title">I. CHỈ SỐ CHÍNH (MAIN STAT)</h2>
+        
+        <h3 class="highlight">0. CAPACITY (Dung lượng)</h3>
+        <ul>
+            <li>Capacity là chỉ số cơ bản, biểu thị tổng chỉ số của một <span class="keyword">Neva</span>.</li>
+            <li>Công thức: <span class="formula">Capacity = HP + POW + SPD + REF + SHD + REC</span></li>
+            <li>Để tăng Capacity, người chơi cần mua <span class="keyword">Add-on</span> từ <span class="keyword">Shop</span>.</li>
+            <li>Khi đăng ký <span class="keyword">Neva</span>, Capacity mặc định là <span class="year">200TB</span> (tương đương 200 Stat).</li>
+            <li>Capacity cũng chính là sức nặng của <span class="keyword">Neva</span>.</li>
+        </ul>
+        
+        <h3 class="highlight">1. HEALTH POINT (HP)</h3>
+        <ul>
+            <li>HP thể hiện khả năng chịu sát thương của <span class="keyword">Neva</span>.</li>
+            <li>Quyết định lượng hồi phục HP tối đa mỗi lượt.</li>
+            <li><span class="danger">Khi HP về 0, Neva bị phá hủy và buộc phải rời khỏi trận đấu, nhưng không bị Dead End.</span></li>
+            <li>Yêu cầu tối thiểu: <span class="year">10%</span> CAPACITY, sau đó sẽ tăng <span class="year">10</span> lần.</li>
+        </ul>
+        
+        <h3 class="highlight">2. POWER (POW)</h3>
+        <ul>
+            <li>Power biểu trưng cho sức mạnh và khả năng gây sát thương của <span class="keyword">Neva</span>.</li>
+            <li>Ảnh hưởng đến khả năng mang vác dữ liệu có dung lượng lớn.</li>
+            <li>Công thức tính dung lượng <span class="keyword">Neva</span> có thể mang: <span class="formula">10 * POW</span> (đơn vị <span class="organization">TB</span>)</li>
+        </ul>
+        
+        <h3 class="highlight">3. SPEED (SPD)</h3>
+        <ul>
+            <li>Speed thể hiện tốc độ di chuyển và hành động của <span class="keyword">Neva</span>.</li>
+            <li>1 SPD = khả năng di chuyển 1 <span class="organization">Nt/s</span> (tương đương 1m/s) ở tốc độ tối đa.</li>
+            <li>Giới hạn tối thiểu: <span class="year">5%</span> CAPACITY</li>
+            <li>Giới hạn tối đa: <span class="year">60%</span> CAPACITY</li>
+        </ul>
+        
+        <h3 class="highlight">4. REFLEX (REF)</h3>
+        <ul>
+            <li>Reflex đại diện cho khả năng phản xạ của <span class="keyword">Neva</span> trong các tình huống.</li>
+            <li><span class="keyword">Neva</span> có thể phản xạ với các tình huống có Speed không cao hơn <span class="year">150%</span> Reflex của <span class="keyword">Neva</span> đó.</li>
+            <li>Cho phép thực hiện các hành động phản ứng với tình huống.</li>
+        </ul>
+        
+        <h3 class="highlight">5. SHIELDING (SHD)</h3>
+        <ul>
+            <li>Shielding thể hiện khả năng tạo khiên phòng ngự của <span class="keyword">Neva</span>.</li>
+            <li>Khi có stat SHD, <span class="keyword">Neva</span> có thể tạo khiên với bán kính <span class="year">0.5 Nt</span> (<span class="year">0.5 m</span>), khoảng cách tối đa là <span class="year">10%</span> phạm vi tối đa xung quanh bản thân.</li>
+            <li>Độ bền khiên = <span class="year">100%</span> Stat SHD</li>
+            <li>Giới hạn: 1 lần/lượt</li>
+        </ul>
+        
+        <h3 class="highlight">6. RECOVERY (REC)</h3>
+        <ul>
+            <li><span class="keyword">Neva</span> có stat REC sẽ có hiệu ứng hồi phục cơ bản (<span class="character">base heal</span>) kèm theo đòn tấn công cơ bản.</li>
+            <li>Giá trị hồi phục: <span class="year">25%</span> REC cho 2 đối tượng với (<span class="year">0.5 m</span>), khoảng cách tối đa là <span class="year">10%</span> phạm vi tối đa xung quanh bản thân.</li> </li>
+            <li><span class="keyword">Neva</span> không có stat REC không thể phục hồi HP cho đối tượng khác.</li>
+            <li>Giới hạn: 1 lần/lượt</li>
+        </ul>
+    </div>
+
+    <div class="content-box">
+        <h2 class="event-title">II. CHỈ SỐ PHỤ (SUB STAT)</h2>
+        
+        <h3 class="highlight">1. HEALING CAPACITY (H.CAP)</h3>
+        <ul>
+            <li>Giới hạn lượng HP phục hồi <span class="keyword">Neva</span> có thể nhận mỗi lượt.</li>
+            <li>Giá trị = <span class="year">20%</span> Max HP đăng ký trong profile (sau khi đã nhân 10) của <span class="keyword">Neva</span></li>
+        </ul>
+        
+        <h3 class="highlight">2. MAX RANGE</h3>
+        <ul>
+            <li>Biểu thị kích thước và phạm vi sử dụng kỹ năng tối đa của <span class="keyword">Neva</span>.</li>
+            <li>Công thức: <span class="formula">Max Range = 100% CAPACITY</span> (đơn vị <span class="organization">Netric</span>)</li>
+            <li>Ví dụ: <span class="keyword">Neva</span> có CAPACITY = <span class="year">400TB</span>, Max Range là <span class="year">400 Netric (Nt)</span></li>
+        </ul>
+    </div>
+</body>
+</html>

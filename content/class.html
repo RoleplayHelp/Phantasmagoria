@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tổng quan về Các Class</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content-box">
+        <h1 class="main-title">Tổng quan về Các Class</h1>
+
+        <p class="important-note">
+            <strong>LƯU Ý QUAN TRỌNG:</strong> Class đại diện cho hướng chính trong việc xây dựng kỹ năng của nhân vật. Điều này sẽ là <span class="highlight">cơ sở quan trọng để Admin duyệt skill</span>. Khi tạo skill, hãy đảm bảo chúng phù hợp với đặc trưng và khả năng độc quyền của class đã chọn.
+        </p>
+
+        <p>Trong hệ thống trò chơi này, mỗi class đóng một vai trò độc đáo với những khả năng và giới hạn riêng. Dưới đây là chi tiết về từng class:</p>
+
+        <h2 class="class-title">1. Attacker</h2>
+        <p class="class-role">Attacker là lực lượng tấn công chính, chuyên gây sát thương và không thể thiếu trong hầu hết các nhiệm vụ.</p>
+        <h3>Giới hạn tăng chỉ số:</h3>
+        <ul>
+            <li><span class="stat">HP: +50%</span>, <span class="stat-max">POW: +100%</span>, <span class="stat">SPD: +50%</span></li>
+            <li><span class="stat">REF: +50%</span>, <span class="stat">SHD: +50%</span>, <span class="stat">REC: +50%</span></li>
+        </ul>
+        <h3>Khả năng độc quyền:</h3>
+        <ul>
+            <li><span class="ability">Đăng ký 2 hệ tấn công</span></li>
+            <li>Sử dụng các kỹ năng tấn công đặc biệt như <span class="highlight">true damage</span>, <span class="highlight">piercing damage</span></li>
+        </ul>
+
+        <h2 class="class-title">2. Tanker</h2>
+        <p class="class-role">Tanker là lá chắn của đội, với khả năng phòng thủ và sinh tồn vượt trội.</p>
+        <h3>Giới hạn tăng chỉ số:</h3>
+        <ul>
+            <li><span class="stat-max">HP: +100%</span>, <span class="stat">POW: +50%</span>, <span class="stat">SPD: +50%</span></li>
+            <li><span class="stat">REF: +50%</span>, <span class="stat-max">SHD: +100%</span>, <span class="stat">REC: +50%</span></li>
+        </ul>
+        <h3>Khả năng độc quyền:</h3>
+        <ul>
+            <li><span class="ability">Phá lực tóm</span> kẻ địch <span class="condition">khi HP hoặc SHD ≥ 40% Capacity</span></li>
+            <li>Tạo <span class="ability">khiên bảo vệ</span> đồng đội trong phạm vi <span class="number">10% Max Range</span> mỗi lượt</li>
+            <li>Hồi <span class="number">20% MaxHP</span> khi bị delete (HP về 0), <span class="limit">CD 6 turn</span> <span class="condition">(khi HP ≥ 40% Base stat)</span></li>
+        </ul>
+
+        <h2 class="class-title">3. Healer</h2>
+        <p class="class-role">Healer giữ vai trò then chốt trong việc hồi phục cho đồng đội.</p>
+        <h3>Giới hạn tăng chỉ số:</h3>
+        <ul>
+            <li><span class="stat">HP: +50%</span>, <span class="stat">POW: +50%</span>, <span class="stat">SPD: +50%</span></li>
+            <li><span class="stat">REF: +50%</span>, <span class="stat">SHD: +50%</span>, <span class="stat-max">REC: +100%</span></li>
+        </ul>
+        <h3>Khả năng độc quyền:</h3>
+        <ul>
+            <li><span class="ability">Heal</span> <span class="number">2 đối tượng</span> trong bán kính <span class="number">10% MAX RANGE</span> với lượng heal = <span class="number">25% REC</span> mỗi lượt</li>
+        </ul>
+
+        <h2 class="class-title">4. Debuffer</h2>
+        <p class="class-role">Debuffer tạo lợi thế cho đội bằng cách làm suy yếu kẻ địch.</p>
+        <h3>Giới hạn tăng chỉ số:</h3>
+        <ul>
+            <li>Tất cả chỉ số: <span class="stat">+50%</span></li>
+        </ul>
+        <h3>Khả năng độc quyền:</h3>
+        <ul>
+            <li><span class="ability">Giảm chỉ số kẻ địch</span> mà không cần gây sát thương</li>
+            <li>Giới hạn giảm chỉ số: <span class="highlight">tối đa 20% cho 2 stat bất kỳ</span> của kẻ địch khi không gây sát thương</li>
+        </ul>
+
+        <h2 class="class-title">5. Speedster</h2>
+        <p class="class-role">Speedster là chuyên gia về tốc độ, xuất sắc trong di chuyển và cứu hộ.</p>
+        <h3>Giới hạn tăng chỉ số:</h3>
+        <ul>
+            <li><span class="stat">HP: +50%</span>, <span class="stat">POW: +50%</span>, <span class="stat-max">SPD: +100%</span></li>
+            <li><span class="stat">REF: +50%</span>, <span class="stat">SHD: +50%</span>, <span class="stat">REC: +50%</span></li>
+        </ul>
+        <h3>Khả năng độc quyền:</h3>
+        <ul>
+            <li><span class="ability">Kỹ năng dịch chuyển</span> có phạm vi xa hơn</li>
+            <li><span class="ability">Khả năng dịch chuyển đối tượng khác từ xa</span></li>
+        </ul>
+
+        <h2 class="class-title">6. Scouter</h2>
+        <p class="class-role">Scouter đóng vai trò "đôi mắt" của nhóm, phát hiện nguy hiểm từ xa.</p>
+        <h3>Giới hạn tăng chỉ số:</h3>
+        <ul>
+            <li><span class="stat">HP: +50%</span>, <span class="stat">POW: +50%</span>, <span class="stat">SPD: +50%</span></li>
+            <li><span class="stat-max">REF: +100%</span>, <span class="stat">SHD: +50%</span>, <span class="stat">REC: +50%</span></li>
+        </ul>
+        <h3>Khả năng độc quyền:</h3>
+        <ul>
+            <li>Sử dụng <span class="ability">Detect</span> hoặc <span class="ability">Analysis</span> dưới dạng passive với chi phí thấp</li>
+            <li>Phạm vi <span class="ability">Detect</span> hoặc <span class="ability">Analysis</span> rộng hơn các class khác</li>
+        </ul>
+
+        <h2 class="class-title">7. Supporter</h2>
+        <p class="class-role">Supporter tăng cường sức mạnh cho đồng đội thông qua các buff.</p>
+        <h3>Giới hạn tăng chỉ số:</h3>
+        <ul>
+            <li>Tất cả chỉ số: <span class="stat">+50%</span></li>
+        </ul>
+        <h3>Khả năng độc quyền:</h3>
+        <ul>
+            <li><span class="ability">Buff các skill độc quyền</span> cho class khác (trừ passive độc quyền)</li>
+            <li><span class="ability">Giảm cooldown</span> cho đối tượng khác</li>
+            <li><span class="ability">Tăng giới hạn boost stat</span> cho đối tượng khác</li>
+        </ul>
+    </div>
+</body>
+</html>

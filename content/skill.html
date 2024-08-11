@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới thiệu về Skill</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="content-box">
+        <h1 class="main-title">Giới thiệu về Skill</h1>
+
+        <h2 class="section-title">I. Giới thiệu</h2>
+        <p><span class="keyword">Skill</span> là thứ không thể thiếu trong bộ kỹ năng của player và nó góp phần quyết định giúp player có thể tham gia trò chơi này.</p>
+        <ul>
+            <li>Một skill bao gồm <span class="keyword">hiệu ứng</span>, có thể là một hoặc nhiều hiệu ứng, quyết định khả năng của skill đó.</li>
+            <li>Để đảm bảo sự cân bằng của hiệu ứng, hiệu ứng skill sẽ sử dụng <span class="keyword">cost</span> để tính toán trong giới hạn cost mà player có.</li>
+        </ul>
+        <p class="important-info">Khi tham gia game, mỗi player có <span class="danger">8 cost</span> để đăng ký skill và hiệu ứng.</p>
+
+        <h2 class="section-title">II. Hiệu ứng skill</h2>
+        <p class="warning">Warning: Đây là phần vô cùng phức tạp về skill cost và ý nghĩa của nó.</p>
+        <p>Về cơ bản, bộ skill của player gồm nhiều skill, mỗi skill đều có cost riêng tùy vào hiệu ứng nó đem lại và tổng số cost trong bộ skill không vượt quá số cost player được cho lúc đầu (<span class="highlight-number">8</span> đối với player mới)</p>
+        <p class="formula">Cách thức tính cost: Skill Cost = T (Tier) + RC (Resistance Cost)</p>
+
+        <h3 class="sub-section-title">1. Tier</h3>
+        <p><span class="keyword">Tier</span>, hay còn được gọi là Base Cost, nó đại diện cho độ mạnh của hiệu ứng đó. Độ mạnh của hiệu ứng được tổng hợp từ các yếu tố sau:</p>
+        <ul>
+            <li><span class="sub-keyword">Độ hiệu quả:</span> Như tên gọi, nó nói lên khả năng của hiệu ứng có thể tác động đến mức nào. Hiệu quả của hiệu ứng càng mạnh, Tier càng cao.</li>
+            <li><span class="sub-keyword">Dạng hiệu ứng:</span> Dạng hiệu ứng được chia làm 4 loại lần lượt từ thấp đến cao: Active, Buff, Auto-active, Passive.</li>
+            <ul>
+                <li><span class="effect-type active">Active:</span> Đây là dạng skill kích hoạt chủ động, thường hết ngay lập tức sau khi sử dụng rồi rơi vào trạng thái hồi chiêu (Cooldown).</li>
+                <li><span class="effect-type buff">Buff:</span> Đây là dạng skill kích hoạt chủ động, nhưng nó sẽ có thời gian duy trì hiệu ứng chứ không phải hết ngay lập tức như Active. Sau khi thời gian duy trì của hiệu ứng kết thúc, nó sẽ rơi vào trạng thái hồi chiêu (Cooldown)</li>
+                <li><span class="effect-type auto-active">Auto-active:</span> Đây là dạng hiệu ứng có thể kích hoạt một cách tự động khi điều kiện kích hoạt được đáp ứng. Hiệu ứng kích hoạt có thể là Active hoặc Buff.</li>
+                <li><span class="effect-type passive">Passive:</span> Đây là dạng hiệu ứng bị động, luôn duy trì trừ khi hiệu ứng đó bị vô hiệu hóa từ tác nhân bên ngoài hoặc người sử dụng chủ động tắt.</li>
+            </ul>
+            <li>Dạng hiệu ứng càng mạnh, Tier càng cao.</li>
+            <li><span class="sub-keyword">Thời gian hồi chiêu:</span> Các skill và hiệu ứng đều có thời gian hồi (Cooldown) trừ dạng Passive. Hiệu ứng có cooldown càng ngắn, Tier càng cao.</li>
+        </ul>
+        <p class="note">NOTE: Player chỉ việc đăng ký hiệu ứng, admin sẽ đánh giá Tier của hiệu ứng đó.</p>
+
+        <h3 class="sub-section-title">2. Resistance Cost</h3>
+        <p><span class="keyword">RC (Resistance Cost)</span> là một giá trị số đại diện cho khả năng hiệu ứng có thể chống lại hoặc vô hiệu hóa hiệu ứng khác.</p>
+        <p>Khi hai hiệu ứng đối lập nhau, <span class="highlight-text">RC của hai hiệu ứng sẽ được so sánh</span>. Hiệu ứng nào có <span class="highlight-text">RC cao hơn</span> sẽ <span class="highlight-text">thắng</span> và không bị ảnh hưởng bởi hiệu ứng đối phương.</p>
+<div class="example">
+    <h4>Ví dụ:</h4>
+    <ul>
+        <li class="result-lower">
+            Nếu A có hiệu ứng Piercing (RC<span class="rc-value">3</span>) và B có hiệu ứng Anti-Piercing (RC<span class="rc-value">4.5</span>), thì <span class="result-text">A sẽ không thể xuyên qua phòng thủ của B</span> vì RC của B cao hơn.
+        </li>
+        <li class="result-higher">
+            Nếu A có hiệu ứng Piercing (RC<span class="rc-value">3</span>) và B có hiệu ứng Anti-Piercing (RC<span class="rc-value">2.5</span>), thì A vẫn có thể <span class="result-text">xuyên qua phòng thủ của B</span> vì RC của A cao hơn.
+        </li>
+        <li class="result-equal">
+            Nếu cả A và B đều có cùng RC (ví dụ RC<span class="rc-value">3</span>), thì <span class="result-text">Admin sẽ xử lý như hiệu ứng đó có RC = 0</span>.
+        </li>
+    </ul>
+</div>
+        <p class="important-info">Tóm lại, <span class="highlight-text">RC cao hơn sẽ quyết định hiệu ứng nào thắng</span> và có tác dụng trong trường hợp hai hiệu ứng đối lập nhau.</p>
+
+        <div class="toggleable">
+            <h2 class="section-title">III. Một số kỹ năng T1</h2>
+            <div class="skill-group">
+                <h3 class="skill-type offensive">Offensive skill:</h3>
+                <ul>
+                    <li class="skill-item"><span class="skill-name">AoE</span> (CD<span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Double attack</span> (Dura = CD = <span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Damage Boost</span> <span class="highlight-number">50%</span> (Dura = CD = <span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Effect Damage</span> <span class="highlight-number">100%</span> (CD<span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Homing</span> (<span class="effect-type passive">Passive</span>)</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3 class="skill-type tank">Tank Skill:</h3>
+                <ul>
+                    <li class="skill-item"><span class="skill-name">DEF</span> = <span class="highlight-number">100%</span> Pow = <span class="highlight-number">40%</span> Base Stat (<span class="effect-type passive">Passive</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Dmg res</span> <span class="highlight-number">20%</span> (<span class="effect-type passive">Passive</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Dmg res</span> <span class="highlight-number">30%</span> (<span class="effect-type buff">Buff</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Fake HP</span> = <span class="highlight-number">150%</span> ShD (CD<span class="highlight-number">3-4</span>)</li>
+                    <li class="skill-item"><span class="skill-name">AoE Shield</span> = <span class="highlight-number">100%</span> ShD (CD<span class="highlight-number">3</span>)</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3 class="skill-type healing">Healing skill:</h3>
+                <ul>
+                    <li class="skill-item"><span class="skill-name">Cleanse</span> <span class="highlight-number">2</span> debuff (CD<span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Heal</span> <span class="highlight-number">50%</span> REC - <span class="highlight-number">1</span> targets (<span class="effect-type passive">Passive</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Heal</span> <span class="highlight-number">100%</span> REC (CD<span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Double Heal</span> <span class="highlight-number">75%</span> (<span class="effect-type buff">Buff</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Healing Boost</span> <span class="highlight-number">50%</span> (<span class="effect-type buff">Buff</span>)</li>
+                    <li class="skill-item"><span class="skill-name">AoE Buff</span> (<span class="effect-type buff">Buff</span>)</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3 class="skill-type debuff">Debuff:</h3>
+                <ul>
+                    <li class="skill-item"><span class="skill-name">Reduce stat</span> <span class="highlight-number">30%</span> (D<span class="highlight-number">3</span>C<span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Reduce Dmg Res</span> <span class="highlight-number">20%</span> (D<span class="highlight-number">3</span>C<span class="highlight-number">3</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Common Debuff</span> (D<span class="highlight-number">3</span>C<span class="highlight-number">3</span>)</li>
+                </ul>
+            </div>
+            <div class="skill-group">
+                <h3 class="skill-type utility">Utility skill:</h3>
+                <ul>
+                    <li class="skill-item"><span class="skill-name">Fly</span> (<span class="effect-type passive">Passive</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Boost stat</span> <span class="highlight-number">50%</span> (<span class="effect-type buff">Buff</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Boost cap</span> <span class="highlight-number">25%</span>, max <span class="highlight-number">50%</span> (<span class="effect-type buff">Buff</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Healing cap</span> <span class="highlight-number">10%</span>, max <span class="highlight-number">20%</span> (<span class="effect-type buff">Buff</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Shadow dash</span> (<span class="effect-type active">Active</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Share skill</span> (<span class="effect-type passive">Passive</span>)</li>
+                    <li class="skill-item"><span class="skill-name">Tàng hình</span> (<span class="effect-type buff">Buff</span>)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

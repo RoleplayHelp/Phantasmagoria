@@ -1,10 +1,24 @@
 function createDataParticles() {
-    const container = document.body;
-    const contentArea = document.querySelector('.background-plot');
+    console.log("Creating data particles");
+    let container = document.getElementById('particles-container');
     
+    // Nếu container không tồn tại, tạo nó
+    if (!container) {
+        console.log("Particles container not found. Creating one.");
+        container = document.createElement('div');
+        container.id = 'particles-container';
+        container.style.position = 'fixed';
+        container.style.top = '0';
+        container.style.left = '0';
+        container.style.width = '100%';
+        container.style.height = '100%';
+        container.style.pointerEvents = 'none';
+        container.style.zIndex = '-1';
+        document.body.appendChild(container);
+    }
+
     // Xóa các particles cũ nếu có
-    const oldParticles = document.querySelectorAll('.data-particle');
-    oldParticles.forEach(particle => particle.remove());
+    container.innerHTML = '';
 
     for (let i = 0; i < 50; i++) {
         const particle = document.createElement('div');
@@ -14,11 +28,21 @@ function createDataParticles() {
         particle.style.animationDelay = `${Math.random() * 3}s`;
         particle.textContent = Math.random().toString(36).substring(2, 8);
         
-        // Thêm particle vào body, nhưng đặt nó phía sau content area
-        container.insertBefore(particle, contentArea);
+        container.appendChild(particle);
     }
 }
 
-// Gọi hàm khi trang được load và khi cửa sổ thay đổi kích thước
-document.addEventListener('DOMContentLoaded', createDataParticles);
-window.addEventListener('resize', createDataParticles);
+function initPage() {
+    // Đảm bảo DOM đã tải xong trước khi tạo particles
+    if (document.readyState === 'complete' || document.readyState === 'interactive') {
+        createDataParticles();
+        window.addEventListener('resize', createDataParticles);
+    } else {
+        document.addEventListener('DOMContentLoaded', function() {
+            createDataParticles();
+            window.addEventListener('resize', createDataParticles);
+        });
+    }
+}
+
+initPage();
