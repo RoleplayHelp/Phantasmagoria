@@ -636,3 +636,47 @@ li::before {
     padding: 10px;
     margin-top: 15px;
 }
+
+@media screen and (max-width: 768px) {
+  .text-5xl {
+    font-size: 2.5rem; /* Giảm kích thước font cho tiêu đề chính trên mobile */
+  }
+  
+  .text-3xl {
+    font-size: 1.75rem; /* Giảm kích thước font cho tiêu đề phụ trên mobile */
+  }
+  
+  .container {
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+  
+  .grid-cols-1 {
+    grid-template-columns: 1fr; /* Đảm bảo các phần tử xếp dọc trên mobile */
+  }
+  
+  .bg-indigo-800 {
+    padding: 15px; /* Giảm padding cho các card trên mobile */
+  }
+  
+  .text-2xl {
+    font-size: 1.5rem; /* Giảm kích thước font cho tiêu đề card trên mobile */
+  }
+  
+  .inline-block {
+    width: 100%; /* Làm cho nút chiếm full width trên mobile */
+    text-align: center;
+  }
+  
+  /* Đảm bảo text không bị cắt */
+  h1, h2, h3, p {
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+    -ms-word-break: break-all;
+    word-break: break-word;
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+  }
+}
