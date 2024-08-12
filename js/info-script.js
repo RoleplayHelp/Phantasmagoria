@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
         { id: 'intro', file: 'background-plot.html' },
         { id: 'organizations', file: 'organization.html' },
         { id: 'networkavatar', file: 'network avatar.html' },
+        { id: 'cyberInfo', file: 'cyberFrontier.html' },
         { id: 'miscInfo', file: 'miscInfo.html' }
         // Thêm các section mới ở đây
     ];
