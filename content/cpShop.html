@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CP Shop và Dịch vụ NEXART</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div>
+            <h1>CP Shop và Dịch vụ NEXART</h1>
+        </div>
+
+        <div class="content" role="main">
+            <div id="cpSystem" class="section">
+                <h2 class="toggleable">1. Hệ thống Contribution Point (CP)</h2>
+                <div class="content-area">
+                    <h3>Định nghĩa:</h3>
+                    <ul>
+                        <li><span class="keyword">CP</span> là một hệ thống điểm đánh giá và phần thưởng nội bộ của <span class="organization">NEXART</span>.</li>
+                        <li>Phản ánh mức độ đóng góp và hiệu suất của mỗi thành viên trong tổ chức.</li>
+                    </ul>
+
+                    <h3>Cách kiếm CP:</h3>
+                    <ul>
+                        <li>Hoàn thành nhiệm vụ được giao.</li>
+                        <li>Thưởng từ các nhiệm vụ chính.</li>
+                        <li>Tham gia training hay PVP cũng được thưởng CP.</li>
+                    </ul>
+
+                    <h3>Sử dụng CP:</h3>
+                    <ul>
+                        <li>CP là <span class="highlight">"tiền tệ" duy nhất</span> được chấp nhận trong các cơ sở nội bộ của NEXART.</li>
+                        <li>Dùng để mua sắm nhu yếu phẩm tại các cửa hàng nội bộ.</li>
+                        <li>Thanh toán cho các dịch vụ như giải trí, đào tạo bổ sung, hoặc nâng cấp trang bị.</li>
+                    </ul>
+
+                    <h3>Quản lý CP:</h3>
+                    <ul>
+                        <li>Mỗi thành viên có một tài khoản CP riêng.</li>
+                        <li>CP có thể được tích lũy hoặc sử dụng theo thời gian.</li>
+                        <li>Có thể có các cấp bậc hoặc đặc quyền dựa trên tổng số CP tích lũy.</li>
+                    </ul>
+
+                    <h3>Giới hạn:</h3>
+                    <p class="important-info">CP không thể chuyển đổi thành tiền thật hoặc sử dụng bên ngoài NEXART.</p>
+                </div>
+            </div>
+
+            <div id="shoppingList" class="section">
+                <h2 class="toggleable">2. Shopping List</h2>
+                <div class="content-area">
+                    <ul class="item-list">
+                        <li class="item">
+                            <h4 class="item-name">Healing Chip <span class="cooldown">(CD 2 turn sau khi sử dụng xong)</span></h4>
+                            <p>Hồi HP cho 1 đối tượng, tối đa <span class="highlight">40% MaxHP</span>.</p>
+                            <p class="item-price">Giá: <span class="formula">75% x %MaxHP hồi x Base stat của người nhận</span></p>
+                        </li>
+                        <li class="item">
+                            <h4 class="item-name">Purify chip <span class="cooldown">(CD 1 turn sau khi sử dụng xong)</span></h4>
+                            <p>Xoá 1 debuff cho Neva được sử dụng.</p>
+                            <p class="item-price">Giá: <span class="formula">5% x (1+R) x Base stat của người nhận</span> (R là hệ Resist của debuff, tối đa với R = 1)</p>
+                        </li>
+                        <li class="item">
+                            <h4 class="item-name">Elemental Chip <span class="cooldown">(CD 3 turn sau khi chip hết hiệu lực)</span></h4>
+                            <p>Cho phép người sử dụng chuyển đổi hệ của đòn tấn công trong 2 turn sang hệ tuỳ ý.</p>
+                            <p class="item-price">Giá: <span class="formula">50% x Base stat của người dùng</span></p>
+                        </li>
+                        <li class="item">
+                            <h4 class="item-name">Quantum Shield <span class="cooldown">(CD 3 turn sau khi Shield hết hiệu lực)</span></h4>
+                            <p>Giảm <span class="highlight">20% sát thương</span> nhận vào trong 3 turn.</p>
+                            <p class="item-price">Giá: <span class="formula">30% x Base stat của người dùng</span></p>
+                        </li>
+                        <li class="item">
+                            <h4 class="item-name">Backup Chip <span class="cooldown">(CD 6 turn sau khi chip kích hoạt)</span></h4>
+                            <p>Neva sẽ nhận lại <span class="highlight">30% MaxHP</span> sau khi HP về 0 và tránh được trạng thái Delete.</p>
+                            <p class="item-price">Giá: <span class="formula">40% x Base stat người dùng</span></p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div id="nexartServices" class="section">
+                <h2 class="toggleable">3. Các dịch vụ của NEXART</h2>
+                <div class="content-area">
+                    <ul class="service-list">
+                        <li class="service">
+                            <h4 class="service-name">Recover</h4>
+                            <p>Một Neva sau khi bị delete (HP = 0) sẽ cần phải được hồi phục thông qua dữ liệu backup tại HQ.</p>
+                            <p>Dịch vụ này cần phải thực hiện ở HQ.</p>
+                            <p class="service-price">Giá: <span class="formula">75% x Base stat của người sử dụng</span></p>
+                        </li>
+                        <li class="service">
+                            <h4 class="service-name">Portal</h4>
+                            <p>Cho phép Neva đặt 2 cổng dịch chuyển có kết nối với nhau, dùng để hỗ trợ di chuyển ở khoảng cách lớn.</p>
+                            <p class="service-price">Giá: <span class="formula">50% x Base stat người đặt Portal</span></p>
+                        </li>
+                    </ul>
+                    <p class="note">Note: Đôi khi player có thể nhờ Yukari hỗ trợ với giá rẻ hơn, đôi lúc miễn phí</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/setting-script.js"></script>
+</body>
+</html>

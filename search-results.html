@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kết quả tìm kiếm</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        h1 {
+            color: #2c3e50;
+        }
+        #search-query {
+            font-style: italic;
+            color: #3498db;
+        }
+        #search-results {
+            margin-top: 20px;
+        }
+        .result-item {
+            background-color: #fff;
+            margin-bottom: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .result-item h2 {
+            margin-top: 0;
+            color: #2980b9;
+        }
+        .result-item p {
+            margin-bottom: 10px;
+        }
+        .result-item a {
+            color: #27ae60;
+            text-decoration: none;
+        }
+        .result-item a:hover {
+            text-decoration: underline;
+        }
+        .highlight {
+            background-color: yellow;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Kết quả tìm kiếm cho: <span id="search-query"></span></h1>
+    <div id="search-results"></div>
+
+    <script src="https://unpkg.com/lunr/lunr.js"></script>
+    <script>
+        let idx;
+        let pages = [];
+
+        // Hàm để lấy tham số từ URL
+        function getQueryParam(param) {
+            const urlParams = new URLSearchParams(window.location.search);
+            return urlParams.get(param);
+        }
+
+        // Hàm tạo index và thực hiện tìm kiếm
+        async function initializeSearch() {
+            // Tải dữ liệu tìm kiếm (giả sử bạn có một file JSON chứa nội dung của tất cả các trang)
+            const response = await fetch('search-data.json');
+            pages = await response.json();
+
+            // Tạo index Lunr
+            idx = lunr(function () {
+                this.ref('url');
+                this.field('title');
+                this.field('content');
+
+                pages.forEach(function (doc) {
+                    this.add(doc);
+                }, this);
+            });
+
+            // Thực hiện tìm kiếm
+            const query = getQueryParam('q');
+            if (query) {
+                document.getElementById('search-query').textContent = query;
+                const results = idx.search(query);
+                displayResults(results, query);
+            } else {
+                document.getElementById('search-results').innerHTML = '<p>Không có truy vấn tìm kiếm.</p>';
+            }
+        }
+
+        // Hàm hiển thị kết quả tìm kiếm
+        function displayResults(results, query) {
+            const resultsContainer = document.getElementById('search-results');
+            resultsContainer.innerHTML = '';
+
+            if (results.length === 0) {
+                resultsContainer.innerHTML = '<p>Không tìm thấy kết quả nào.</p>';
+                return;
+            }
+
+            results.forEach(result => {
+                const page = pages.find(p => p.url === result.ref);
+                const resultItem = document.createElement('div');
+                resultItem.className = 'result-item';
+
+                // Tìm đoạn văn bản chứa từ khóa tìm kiếm
+                const snippet = findSnippet(page.content, query);
+
+                resultItem.innerHTML = `
+                    <h2>${page.title}</h2>
+                    <p>${snippet}</p>
+                    <a href="${page.url}">Xem thêm</a>
+                `;
+                resultsContainer.appendChild(resultItem);
+            });
+        }
+
+        // Hàm tìm và highlight đoạn văn bản chứa từ khóa tìm kiếm
+        function findSnippet(content, query) {
+            const words = query.split(' ');
+            const regex = new RegExp(words.join('|'), 'gi');
+            const match = content.match(regex);
+
+            if (match) {
+                const startIndex = Math.max(0, content.indexOf(match[0]) - 50);
+                const endIndex = Math.min(content.length, startIndex + 200);
+                let snippet = content.substring(startIndex, endIndex);
+
+                // Highlight từ khóa tìm kiếm
+                snippet = snippet.replace(regex, '<span class="highlight">$&</span>');
+
+                return snippet + (endIndex < content.length ? '...' : '');
+            }
+
+            return content.substring(0, 150) + '...'; // Trả về đoạn đầu tiên nếu không tìm thấy
+        }
+
+        // Khởi tạo tìm kiếm khi trang đã load
+        window.addEventListener('DOMContentLoaded', initializeSearch);
+    </script>
+</body>
+</html>

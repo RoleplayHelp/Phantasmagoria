@@ -528,3 +528,111 @@ p {
 .result-equal .result-text {
     color: #d97706;
 }
+
+/* Styles bổ sung cho trang Công nghệ Astoria */
+
+.tech-section {
+    margin-bottom: 30px;
+}
+
+.section-title {
+    color: #3b82f6;
+    border-bottom: 2px solid #3b82f6;
+    padding-bottom: 5px;
+    margin-bottom: 15px;
+}
+
+.keyword {
+    color: #8b5cf6;
+    font-weight: bold;
+}
+
+.highlight {
+    background-color: rgba(245, 158, 11, 0.2);
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+.tech-item {
+    color: #10b981;
+    font-style: italic;
+}
+
+ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+li {
+    margin-bottom: 10px;
+    padding-left: 20px;
+    position: relative;
+}
+
+li::before {
+    content: "•";
+    color: #3b82f6;
+    font-weight: bold;
+    position: absolute;
+    left: 0;
+}
+
+/* Styles bổ sung cho CP và Dịch vụ */
+
+.cp-section, .shopping-services-section {
+    margin-bottom: 30px;
+}
+
+.organization {
+    color: #3b82f6;
+    font-weight: bold;
+}
+
+.toggle-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.2s ease-out;
+}
+
+.toggle-title {
+    background-color: #1f2937;
+    color: #ffffff;
+    padding: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-title::after {
+    content: ' ▼';
+    float: right;
+    transition: transform 0.2s ease-out;
+}
+
+.toggle-title.active::after {
+    transform: rotate(180deg);
+}
+
+.item, .service {
+    margin-bottom: 20px;
+}
+
+.item-name, .service-name {
+    color: #10b981;
+    margin-bottom: 5px;
+}
+
+.cooldown {
+    font-size: 0.9em;
+    color: #9ca3af;
+}
+
+.item-price, .service-price {
+    font-style: italic;
+}
+
+.note {
+    background-color: rgba(96, 165, 250, 0.1);
+    border-left: 4px solid #60a5fa;
+    padding: 10px;
+    margin-top: 15px;
+}

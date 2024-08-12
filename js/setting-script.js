@@ -3,11 +3,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const sectionConfig = [
         { id: 'baseStat', file: 'baseStat.html' },
         { id: 'class', file: 'class.html' },
-        { id: 'skill', file: 'skill.html' }
+        { id: 'skill', file: 'skill.html' },
+        { id: 'cpShop', file: 'cpShop.html' },
         // Thêm các section mới ở đây
     ];
 
-    const sections = document.querySelectorAll('section');
+    const sections = document.querySelectorAll('.section');
     const backToTopButton = document.getElementById("backToTop");
 
     // Hàm load nội dung
@@ -37,6 +38,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 const content = doc.querySelector('.background-plot') || doc.body;
                 if (content) {
                     contentArea.innerHTML = content.innerHTML;
+                    // Sau khi load nội dung, áp dụng toggle cho các section con
+                    applyToggle(contentArea);
                 } else {
                     console.warn(`No content found in ${fileName}`);
                     contentArea.innerHTML = '<p>Không tìm thấy nội dung.</p>';
@@ -48,26 +51,35 @@ document.addEventListener('DOMContentLoaded', function() {
             });
     }
 
+    // Hàm áp dụng toggle cho các phần tử
+    function applyToggle(element) {
+        const toggleables = element.querySelectorAll('.toggleable');
+        toggleables.forEach(toggle => {
+            toggle.addEventListener('click', function() {
+                // Tìm phần tử content-area gần nhất
+                const contentArea = this.nextElementSibling;
+                if (contentArea && contentArea.classList.contains('content-area')) {
+                    // Toggle hiển thị của content-area
+                    contentArea.style.display = contentArea.style.display === 'none' || contentArea.style.display === '' ? 'block' : 'none';
+                    
+                    // Toggle class 'active' cho phần tử được click
+                    this.classList.toggle('active');
+                }
+            });
+        });
+    }
+
     // Load nội dung cho các phần
     sectionConfig.forEach(section => {
         loadContent(section.id, section.file);
     });
 
-    // Xử lý đóng/mở nội dung cho tất cả các phần
-    sections.forEach(section => {
-        const toggle = section.querySelector('.toggleable');
-        const contentArea = section.querySelector('.content-area');
-        if (toggle && contentArea) {
-            toggle.addEventListener('click', function() {
-                if (contentArea.style.display === 'none' || contentArea.style.display === '') {
-                    contentArea.style.display = 'block';
-                    toggle.classList.add('active');
-                } else {
-                    contentArea.style.display = 'none';
-                    toggle.classList.remove('active');
-                }
-            });
-        }
+    // Áp dụng toggle cho các section chính
+    applyToggle(document);
+
+    // Ẩn tất cả các content-area ban đầu
+    document.querySelectorAll('.content-area').forEach(area => {
+        area.style.display = 'none';
     });
 
     // Xử lý nút Back to Top
@@ -83,10 +95,4 @@ document.addEventListener('DOMContentLoaded', function() {
             window.scrollTo({top: 0, behavior: 'smooth'});
         };
     }
-	
-	document.querySelectorAll('.toggleable .section-title').forEach(title => {
-    title.addEventListener('click', () => {
-        title.parentElement.classList.toggle('closed');
-    });
-});
 });
