@@ -36,7 +36,7 @@ body::before {
 }
 
 header {
-    background-color: rgba(0, 0, 0, 0.8);
+    background-color: rgba(0, 0, 0, 0.1);
     padding: 20px;
     border-radius: 10px;
     margin-bottom: 30px;
